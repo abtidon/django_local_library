@@ -1,0 +1,1318 @@
+[31/Jan/2018 18:36:33] "GET /admin/ HTTP/1.1" 302 0
+[31/Jan/2018 18:36:33] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1855
+[31/Jan/2018 18:37:38] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[31/Jan/2018 18:37:38] "GET /admin/ HTTP/1.1" 200 2984
+Performing system checks...
+
+System check identified no issues (0 silenced).
+January 31, 2018 - 18:36:03
+Django version 2.0.1, using settings 'locallibrary.settings'
+Starting development server at http://192.168.49.169:8000/
+Quit the server with CONTROL-C.
+[31/Jan/2018 18:39:50] "GET /admin/ HTTP/1.1" 200 4852
+Internal Server Error: /admin/catalog/book/
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 247, in execute
+    res = self._query(query)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 374, in _do_query
+    db.query(q)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.ProgrammingError: (1146, "Table 'myproject.catalog_book' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/options.py", line 574, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1570, in changelist_view
+    cl = self.get_changelist_instance(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/options.py", line 705, in get_changelist_instance
+    self,
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/views/main.py", line 77, in __init__
+    self.get_results(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/views/main.py", line 175, in get_results
+    result_count = paginator.count
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/paginator.py", line 85, in count
+    return self.object_list.count()
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/models/query.py", line 387, in count
+    return self.query.get_count(using=self.db)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/models/sql/query.py", line 491, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/models/sql/query.py", line 476, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1064, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 247, in execute
+    res = self._query(query)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 374, in _do_query
+    db.query(q)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'myproject.catalog_book' doesn't exist")
+[31/Jan/2018 18:39:53] "GET /admin/catalog/book/ HTTP/1.1" 500 230858
+Internal Server Error: /admin/catalog/bookinstance/
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 247, in execute
+    res = self._query(query)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 374, in _do_query
+    db.query(q)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.ProgrammingError: (1146, "Table 'myproject.catalog_bookinstance' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/options.py", line 574, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1570, in changelist_view
+    cl = self.get_changelist_instance(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/options.py", line 705, in get_changelist_instance
+    self,
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/views/main.py", line 77, in __init__
+    self.get_results(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/views/main.py", line 175, in get_results
+    result_count = paginator.count
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/paginator.py", line 85, in count
+    return self.object_list.count()
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/models/query.py", line 387, in count
+    return self.query.get_count(using=self.db)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/models/sql/query.py", line 491, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/models/sql/query.py", line 476, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1064, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 247, in execute
+    res = self._query(query)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 374, in _do_query
+    db.query(q)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'myproject.catalog_bookinstance' doesn't exist")
+[31/Jan/2018 18:40:06] "GET /admin/catalog/bookinstance/ HTTP/1.1" 500 231345
+Internal Server Error: /admin/catalog/genre/
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 247, in execute
+    res = self._query(query)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 374, in _do_query
+    db.query(q)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.ProgrammingError: (1146, "Table 'myproject.catalog_genre' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/options.py", line 574, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1570, in changelist_view
+    cl = self.get_changelist_instance(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/options.py", line 705, in get_changelist_instance
+    self,
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/views/main.py", line 77, in __init__
+    self.get_results(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/views/main.py", line 175, in get_results
+    result_count = paginator.count
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/paginator.py", line 85, in count
+    return self.object_list.count()
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/models/query.py", line 387, in count
+    return self.query.get_count(using=self.db)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/models/sql/query.py", line 491, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/models/sql/query.py", line 476, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1064, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 247, in execute
+    res = self._query(query)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 374, in _do_query
+    db.query(q)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'myproject.catalog_genre' doesn't exist")
+[31/Jan/2018 18:40:16] "GET /admin/catalog/genre/ HTTP/1.1" 500 230918
+Internal Server Error: /admin/catalog/author/
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 247, in execute
+    res = self._query(query)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 374, in _do_query
+    db.query(q)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.ProgrammingError: (1146, "Table 'myproject.catalog_author' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/options.py", line 574, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 223, in inner
+    return view(request, *args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/decorators.py", line 62, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/decorators.py", line 142, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/decorators.py", line 58, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/options.py", line 1570, in changelist_view
+    cl = self.get_changelist_instance(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/options.py", line 705, in get_changelist_instance
+    self,
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/views/main.py", line 77, in __init__
+    self.get_results(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/contrib/admin/views/main.py", line 175, in get_results
+    result_count = paginator.count
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/paginator.py", line 85, in count
+    return self.object_list.count()
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/models/query.py", line 387, in count
+    return self.query.get_count(using=self.db)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/models/sql/query.py", line 491, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/models/sql/query.py", line 476, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1064, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 247, in execute
+    res = self._query(query)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/cursors.py", line 374, in _do_query
+    db.query(q)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/MySQLdb/connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'myproject.catalog_author' doesn't exist")
+[31/Jan/2018 18:40:20] "GET /admin/catalog/author/ HTTP/1.1" 500 230977
+Performing system checks...
+
+System check identified no issues (0 silenced).
+January 31, 2018 - 18:39:28
+Django version 2.0.1, using settings 'locallibrary.settings'
+Starting development server at http://192.168.49.169:8000/
+Quit the server with CONTROL-C.
+Unhandled exception in thread started by <function check_errors.<locals>.wrapper at 0x7ff55386c6a8>
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/autoreload.py", line 225, in wrapper
+    fn(*args, **kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/management/commands/runserver.py", line 121, in inner_run
+    self.check(display_num_errors=True)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/management/base.py", line 364, in check
+    include_deployment_checks=include_deployment_checks,
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/management/base.py", line 351, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/checks/registry.py", line 73, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/checks/urls.py", line 13, in check_url_config
+    return check_resolver(resolver)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/checks/urls.py", line 23, in check_resolver
+    return check_method()
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/resolvers.py", line 397, in check
+    for pattern in self.url_patterns:
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/resolvers.py", line 536, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/resolvers.py", line 529, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/local/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/amohamed/virtualenvs/djangodev/locallibrary/locallibrary/locallibrary/urls.py", line 28, in <module>
+    path('catalog/', include('catalog.urls')),
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/local/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'catalog.urls'
+Performing system checks...
+
+[31/Jan/2018 19:01:39] "GET /admin/ HTTP/1.1" 200 4852
+[31/Jan/2018 19:01:46] "GET /admin/catalog/book/ HTTP/1.1" 200 3235
+[31/Jan/2018 19:01:46] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:01:52] "GET /admin/catalog/bookinstance/ HTTP/1.1" 200 3296
+[31/Jan/2018 19:01:52] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:01:56] "GET /admin/catalog/author/ HTTP/1.1" 200 3249
+[31/Jan/2018 19:01:56] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:02:02] "GET / HTTP/1.1" 302 0
+[31/Jan/2018 19:02:02] "GET /catalog/ HTTP/1.1" 200 1413
+[31/Jan/2018 19:02:05] "GET /catalog/books/ HTTP/1.1" 200 1068
+[31/Jan/2018 19:02:06] "GET /catalog/ HTTP/1.1" 200 1413
+[31/Jan/2018 19:02:07] "GET /catalog/ HTTP/1.1" 200 1413
+[31/Jan/2018 19:02:27] "GET /admin/ HTTP/1.1" 200 4852
+[31/Jan/2018 19:02:30] "GET /admin/catalog/book/ HTTP/1.1" 200 3235
+[31/Jan/2018 19:02:30] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:02:32] "GET /admin/catalog/book/add/ HTTP/1.1" 200 7574
+[31/Jan/2018 19:02:32] "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[31/Jan/2018 19:02:32] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:02:32] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+[31/Jan/2018 19:02:32] "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[31/Jan/2018 19:02:32] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[31/Jan/2018 19:02:32] "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[31/Jan/2018 19:02:44] "GET /admin/catalog/author/add/?_to_field=id&_popup=1 HTTP/1.1" 200 4732
+[31/Jan/2018 19:02:44] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:02:44] "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+[31/Jan/2018 19:02:44] "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+[31/Jan/2018 19:02:44] "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 304 0
+[31/Jan/2018 19:02:44] "GET /static/admin/img/calendar-icons.svg HTTP/1.1" 304 0
+[31/Jan/2018 19:03:13] "POST /admin/catalog/author/add/?_to_field=id&_popup=1 HTTP/1.1" 200 372
+[31/Jan/2018 19:03:13] "GET /static/admin/js/popup_response.js HTTP/1.1" 304 0
+[31/Jan/2018 19:03:41] "GET /admin/catalog/book/add/ HTTP/1.1" 200 7622
+[31/Jan/2018 19:03:41] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:04:14] "GET /admin/catalog/genre/add/?_to_field=id&_popup=1 HTTP/1.1" 200 3194
+[31/Jan/2018 19:04:14] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:04:22] "POST /admin/catalog/genre/add/?_to_field=id&_popup=1 HTTP/1.1" 200 370
+[31/Jan/2018 19:05:22] "POST /admin/catalog/book/add/ HTTP/1.1" 302 0
+[31/Jan/2018 19:05:22] "GET /admin/catalog/book/ HTTP/1.1" 200 4540
+[31/Jan/2018 19:05:22] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:05:22] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+[31/Jan/2018 19:05:30] "GET /admin/catalog/book/add/ HTTP/1.1" 200 7668
+[31/Jan/2018 19:05:30] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:05:43] "GET /admin/catalog/author/add/?_to_field=id&_popup=1 HTTP/1.1" 200 4732
+[31/Jan/2018 19:05:43] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:05:59] "POST /admin/catalog/author/add/?_to_field=id&_popup=1 HTTP/1.1" 200 369
+[31/Jan/2018 19:06:17] "POST /admin/catalog/book/add/ HTTP/1.1" 200 7899
+[31/Jan/2018 19:06:17] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:06:31] "GET /admin/catalog/genre/add/?_to_field=id&_popup=1 HTTP/1.1" 200 3194
+[31/Jan/2018 19:06:31] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:06:41] "POST /admin/catalog/genre/add/?_to_field=id&_popup=1 HTTP/1.1" 200 362
+[31/Jan/2018 19:06:46] "POST /admin/catalog/book/add/ HTTP/1.1" 302 0
+[31/Jan/2018 19:06:46] "GET /admin/catalog/book/ HTTP/1.1" 200 4760
+[31/Jan/2018 19:06:46] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:07:00] "GET /admin/ HTTP/1.1" 200 6619
+[31/Jan/2018 19:07:03] "GET /admin/catalog/author/add/ HTTP/1.1" 200 5687
+[31/Jan/2018 19:07:03] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:07:22] "POST /admin/catalog/author/add/ HTTP/1.1" 302 0
+[31/Jan/2018 19:07:22] "GET /admin/catalog/author/ HTTP/1.1" 200 5050
+[31/Jan/2018 19:07:22] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:07:25] "GET /admin/catalog/author/add/ HTTP/1.1" 200 5687
+[31/Jan/2018 19:07:25] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:07:43] "POST /admin/catalog/author/add/ HTTP/1.1" 302 0
+[31/Jan/2018 19:07:43] "GET /admin/catalog/author/ HTTP/1.1" 200 5272
+[31/Jan/2018 19:07:43] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:07:46] "GET /admin/ HTTP/1.1" 200 7209
+[31/Jan/2018 19:07:55] "GET /admin/catalog/genre/ HTTP/1.1" 200 4603
+[31/Jan/2018 19:07:55] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:08:04] "GET /admin/catalog/genre/add/ HTTP/1.1" 200 4146
+[31/Jan/2018 19:08:04] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:08:13] "POST /admin/catalog/genre/add/ HTTP/1.1" 302 0
+[31/Jan/2018 19:08:13] "GET /admin/catalog/genre/ HTTP/1.1" 200 5001
+[31/Jan/2018 19:08:13] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:08:17] "GET /admin/ HTTP/1.1" 200 7492
+[31/Jan/2018 19:08:19] "GET /admin/catalog/bookinstance/ HTTP/1.1" 200 3296
+[31/Jan/2018 19:08:19] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:08:21] "GET /admin/catalog/bookinstance/add/ HTTP/1.1" 200 7547
+[31/Jan/2018 19:08:21] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:08:48] "POST /admin/catalog/bookinstance/add/ HTTP/1.1" 302 0
+[31/Jan/2018 19:08:48] "GET /admin/catalog/bookinstance/ HTTP/1.1" 200 4827
+[31/Jan/2018 19:08:48] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:08:58] "GET /admin/catalog/bookinstance/add/ HTTP/1.1" 200 7547
+[31/Jan/2018 19:08:58] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:09:34] "POST /admin/catalog/bookinstance/add/ HTTP/1.1" 302 0
+[31/Jan/2018 19:09:34] "GET /admin/catalog/bookinstance/ HTTP/1.1" 200 5166
+[31/Jan/2018 19:09:34] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:09:36] "GET /admin/catalog/bookinstance/add/ HTTP/1.1" 200 7547
+[31/Jan/2018 19:09:36] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:09:52] "POST /admin/catalog/bookinstance/add/ HTTP/1.1" 302 0
+[31/Jan/2018 19:09:52] "GET /admin/catalog/bookinstance/ HTTP/1.1" 200 5502
+[31/Jan/2018 19:09:52] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[31/Jan/2018 19:09:56] "GET /admin/ HTTP/1.1" 200 8023
+[01/Feb/2018 14:38:39] "GET /admin/ HTTP/1.1" 200 8023
+[01/Feb/2018 14:38:39] "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[01/Feb/2018 14:38:39] "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[01/Feb/2018 14:38:39] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[01/Feb/2018 14:38:39] "GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+[01/Feb/2018 14:38:39] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 304 0
+[01/Feb/2018 14:38:39] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 304 0
+[01/Feb/2018 14:38:39] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 304 0
+[01/Feb/2018 14:38:39] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[01/Feb/2018 14:38:39] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[01/Feb/2018 14:39:15] "GET / HTTP/1.1" 302 0
+[01/Feb/2018 14:39:15] "GET /catalog/ HTTP/1.1" 200 1413
+[01/Feb/2018 14:39:15] "GET /static/css/styles.css HTTP/1.1" 304 0
+Internal Server Error: /catalog/books/
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 156, in _get_response
+    response = response.render()
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 314, in render
+    return nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 676, in resolve
+    obj = self.var.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 802, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 864, in _resolve_lookup
+    current = current()
+  File "/home/amohamed/virtualenvs/djangodev/locallibrary/locallibrary/catalog/models.py", line 54, in get_absolute_url
+    return reverse('book-detail', args=[str(self.id)])
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/base.py", line 88, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/resolvers.py", line 632, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'book-detail' not found. 'book-detail' is not a valid view function or pattern name.
+[01/Feb/2018 14:39:18] "GET /catalog/books/ HTTP/1.1" 500 188269
+[01/Feb/2018 14:39:26] "GET /catalog/ HTTP/1.1" 200 1413
+[01/Feb/2018 14:39:28] "GET /catalog/ HTTP/1.1" 200 1413
+[01/Feb/2018 14:39:30] "GET /catalog/ HTTP/1.1" 200 1413
+Internal Server Error: /catalog/books/
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 156, in _get_response
+    response = response.render()
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 314, in render
+    return nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 676, in resolve
+    obj = self.var.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 802, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 864, in _resolve_lookup
+    current = current()
+  File "/home/amohamed/virtualenvs/djangodev/locallibrary/locallibrary/catalog/models.py", line 54, in get_absolute_url
+    return reverse('book-detail', args=[str(self.id)])
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/base.py", line 88, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/resolvers.py", line 632, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'book-detail' not found. 'book-detail' is not a valid view function or pattern name.
+[01/Feb/2018 14:39:31] "GET /catalog/books/ HTTP/1.1" 500 188269
+Performing system checks...
+
+System check identified no issues (0 silenced).
+January 31, 2018 - 19:01:38
+Django version 2.0.1, using settings 'locallibrary.settings'
+Starting development server at http://192.168.49.169:8000/
+Quit the server with CONTROL-C.
+Internal Server Error: /catalog/books/
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 156, in _get_response
+    response = response.render()
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 314, in render
+    return nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 676, in resolve
+    obj = self.var.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 802, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 864, in _resolve_lookup
+    current = current()
+  File "/home/amohamed/virtualenvs/djangodev/locallibrary/locallibrary/catalog/models.py", line 54, in get_absolute_url
+    return reverse('book-detail', args=[str(self.id)])
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/base.py", line 88, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/resolvers.py", line 632, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'book-detail' not found. 'book-detail' is not a valid view function or pattern name.
+[01/Feb/2018 14:49:17] "GET /catalog/books/ HTTP/1.1" 500 188269
+[01/Feb/2018 14:55:02] "GET / HTTP/1.1" 302 0
+[01/Feb/2018 14:55:02] "GET /catalog/ HTTP/1.1" 200 1413
+Internal Server Error: /catalog/books/
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 156, in _get_response
+    response = response.render()
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 314, in render
+    return nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 676, in resolve
+    obj = self.var.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 802, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 864, in _resolve_lookup
+    current = current()
+  File "/home/amohamed/virtualenvs/djangodev/locallibrary/locallibrary/catalog/models.py", line 54, in get_absolute_url
+    return reverse('book-detail', args=[str(self.id)])
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/base.py", line 88, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/resolvers.py", line 632, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'book-detail' not found. 'book-detail' is not a valid view function or pattern name.
+[01/Feb/2018 14:55:07] "GET /catalog/books/ HTTP/1.1" 500 188269
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 01, 2018 - 14:49:07
+Django version 2.0.1, using settings 'locallibrary.settings'
+Starting development server at http://192.168.49.169:8000/
+Quit the server with CONTROL-C.
+[01/Feb/2018 15:18:33] "GET / HTTP/1.1" 302 0
+[01/Feb/2018 15:18:33] "GET /catalog/ HTTP/1.1" 200 1413
+Internal Server Error: /catalog/books/
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 156, in _get_response
+    response = response.render()
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 314, in render
+    return nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 676, in resolve
+    obj = self.var.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 802, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 864, in _resolve_lookup
+    current = current()
+  File "/home/amohamed/virtualenvs/djangodev/locallibrary/locallibrary/catalog/models.py", line 54, in get_absolute_url
+    return reverse('book-detail', args=[str(self.id)])
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/base.py", line 88, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/resolvers.py", line 632, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'book-detail' not found. 'book-detail' is not a valid view function or pattern name.
+[01/Feb/2018 15:18:35] "GET /catalog/books/ HTTP/1.1" 500 188269
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 01, 2018 - 15:18:20
+Django version 2.0.1, using settings 'locallibrary.settings'
+Starting development server at http://192.168.49.169:8000/
+Quit the server with CONTROL-C.
+Internal Server Error: /catalog/books/
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 156, in _get_response
+    response = response.render()
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 314, in render
+    return nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 676, in resolve
+    obj = self.var.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 802, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 864, in _resolve_lookup
+    current = current()
+  File "/home/amohamed/virtualenvs/djangodev/locallibrary/locallibrary/catalog/models.py", line 54, in get_absolute_url
+    return reverse('book-detail', args=[str(self.id)])
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/base.py", line 88, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/resolvers.py", line 632, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'book-detail' not found. 'book-detail' is not a valid view function or pattern name.
+[01/Feb/2018 15:19:18] "GET /catalog/books/ HTTP/1.1" 500 188269
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 01, 2018 - 15:19:08
+Django version 2.0.1, using settings 'locallibrary.settings'
+Starting development server at http://192.168.49.169:8000/
+Quit the server with CONTROL-C.
+[01/Feb/2018 15:23:41] "GET /catalog/ HTTP/1.1" 200 1413
+Internal Server Error: /catalog/books/
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 156, in _get_response
+    response = response.render()
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 314, in render
+    return nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 676, in resolve
+    obj = self.var.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 802, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 864, in _resolve_lookup
+    current = current()
+  File "/home/amohamed/virtualenvs/djangodev/locallibrary/locallibrary/catalog/models.py", line 54, in get_absolute_url
+    return reverse('book-detail', args=[str(self.id)])
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/base.py", line 88, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/resolvers.py", line 632, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'book-detail' not found. 'book-detail' is not a valid view function or pattern name.
+[01/Feb/2018 15:23:42] "GET /catalog/books/ HTTP/1.1" 500 188269
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 01, 2018 - 15:23:30
+Django version 2.0.1, using settings 'locallibrary.settings'
+Starting development server at http://192.168.49.169:8000/
+Quit the server with CONTROL-C.
+[01/Feb/2018 15:32:20] "GET /catalog/ HTTP/1.1" 200 1413
+Internal Server Error: /catalog/books/
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 156, in _get_response
+    response = response.render()
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 314, in render
+    return nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 676, in resolve
+    obj = self.var.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 802, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 864, in _resolve_lookup
+    current = current()
+  File "/home/amohamed/virtualenvs/djangodev/locallibrary/locallibrary/catalog/models.py", line 54, in get_absolute_url
+    return reverse('book-detail', args=[str(self.id)])
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/base.py", line 88, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/resolvers.py", line 632, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'book-detail' with arguments '('1',)' not found. 1 pattern(s) tried: ['catalog\\/books\\/$']
+[01/Feb/2018 15:32:21] "GET /catalog/books/ HTTP/1.1" 500 189777
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 01, 2018 - 15:32:15
+Django version 2.0.1, using settings 'locallibrary.settings'
+Starting development server at http://192.168.49.169:8000/
+Quit the server with CONTROL-C.
+[01/Feb/2018 15:34:03] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:34:07] "GET /catalog/book/1 HTTP/1.1" 200 1068
+[01/Feb/2018 15:34:09] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:34:10] "GET /catalog/book/2 HTTP/1.1" 200 1068
+[01/Feb/2018 15:34:14] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:34:30] "GET /catalog/book/1 HTTP/1.1" 200 1068
+Not Found: /catalog/book/
+[01/Feb/2018 15:34:46] "GET /catalog/book/ HTTP/1.1" 404 2936
+[01/Feb/2018 15:40:46] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:40:47] "GET /catalog/book/1 HTTP/1.1" 200 1068
+[01/Feb/2018 15:40:52] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:40:54] "GET /catalog/book/2 HTTP/1.1" 200 1068
+[01/Feb/2018 15:41:08] "GET /admin/ HTTP/1.1" 200 8023
+[01/Feb/2018 15:41:10] "GET /admin/catalog/bookinstance/ HTTP/1.1" 200 5234
+[01/Feb/2018 15:41:10] "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[01/Feb/2018 15:41:10] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[01/Feb/2018 15:41:10] "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[01/Feb/2018 15:41:10] "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[01/Feb/2018 15:41:10] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[01/Feb/2018 15:41:10] "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[01/Feb/2018 15:41:10] "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[01/Feb/2018 15:41:10] "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[01/Feb/2018 15:41:10] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[01/Feb/2018 15:41:10] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[01/Feb/2018 15:41:10] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+[01/Feb/2018 15:41:20] "GET /admin/catalog/bookinstance/167e0b24-7a53-44cb-99f8-a959c3a6ab35/change/ HTTP/1.1" 200 7911
+[01/Feb/2018 15:41:20] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[01/Feb/2018 15:41:26] "POST /admin/catalog/bookinstance/167e0b24-7a53-44cb-99f8-a959c3a6ab35/change/ HTTP/1.1" 302 0
+[01/Feb/2018 15:41:26] "GET /admin/catalog/bookinstance/ HTTP/1.1" 200 5504
+[01/Feb/2018 15:41:26] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[01/Feb/2018 15:41:28] "GET /admin/catalog/bookinstance/a7def6ef-3890-476a-bdda-125ccb133764/change/ HTTP/1.1" 200 7911
+[01/Feb/2018 15:41:28] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[01/Feb/2018 15:41:34] "POST /admin/catalog/bookinstance/a7def6ef-3890-476a-bdda-125ccb133764/change/ HTTP/1.1" 302 0
+[01/Feb/2018 15:41:34] "GET /admin/catalog/bookinstance/ HTTP/1.1" 200 5505
+[01/Feb/2018 15:41:34] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[01/Feb/2018 15:41:36] "GET /admin/catalog/bookinstance/35c9085a-c1d8-4e70-b2f7-20b909c3b52f/change/ HTTP/1.1" 200 7912
+[01/Feb/2018 15:41:36] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[01/Feb/2018 15:41:40] "POST /admin/catalog/bookinstance/35c9085a-c1d8-4e70-b2f7-20b909c3b52f/change/ HTTP/1.1" 302 0
+[01/Feb/2018 15:41:41] "GET /admin/catalog/bookinstance/ HTTP/1.1" 200 5505
+[01/Feb/2018 15:41:41] "GET /admin/jsi18n/ HTTP/1.1" 200 3185
+[01/Feb/2018 15:41:48] "GET / HTTP/1.1" 302 0
+[01/Feb/2018 15:41:48] "GET /catalog/ HTTP/1.1" 200 1413
+[01/Feb/2018 15:41:49] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:41:51] "GET /catalog/book/1 HTTP/1.1" 200 1068
+[01/Feb/2018 15:41:53] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:41:54] "GET /catalog/book/2 HTTP/1.1" 200 1068
+[01/Feb/2018 15:41:57] "GET /catalog/ HTTP/1.1" 200 1413
+[01/Feb/2018 15:41:58] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:41:59] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:42:02] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:42:03] "GET /catalog/book/1 HTTP/1.1" 200 1068
+[01/Feb/2018 15:42:05] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:42:06] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:42:10] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:42:12] "GET /catalog/ HTTP/1.1" 200 1413
+[01/Feb/2018 15:42:12] "GET /catalog/ HTTP/1.1" 200 1413
+[01/Feb/2018 15:42:14] "GET /catalog/ HTTP/1.1" 200 1413
+[01/Feb/2018 15:42:15] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:42:17] "GET /catalog/book/1 HTTP/1.1" 200 1068
+[01/Feb/2018 15:42:20] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:45:24] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:45:25] "GET /catalog/ HTTP/1.1" 200 1413
+[01/Feb/2018 15:45:27] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:45:28] "GET /catalog/book/1 HTTP/1.1" 200 1068
+Not Found: /catalog/book/
+[01/Feb/2018 15:45:34] "GET /catalog/book/ HTTP/1.1" 404 2936
+[01/Feb/2018 15:45:37] "GET /catalog/ HTTP/1.1" 200 1413
+[01/Feb/2018 15:45:38] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:45:39] "GET /catalog/book/2 HTTP/1.1" 200 1068
+[01/Feb/2018 15:45:43] "GET /catalog/books/ HTTP/1.1" 200 1236
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 01, 2018 - 15:33:57
+Django version 2.0.1, using settings 'locallibrary.settings'
+Starting development server at http://192.168.49.169:8000/
+Quit the server with CONTROL-C.
+[01/Feb/2018 15:47:47] "GET /catalog/ HTTP/1.1" 200 1413
+Internal Server Error: /catalog/books/
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 158, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 156, in _get_response
+    response = response.render()
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 314, in render
+    return nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 676, in resolve
+    obj = self.var.resolve(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 802, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 864, in _resolve_lookup
+    current = current()
+  File "/home/amohamed/virtualenvs/djangodev/locallibrary/locallibrary/catalog/models.py", line 54, in get_absolute_url
+    return reverse('book-detail', args=[str(self.id)])
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/base.py", line 88, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/resolvers.py", line 632, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'book-detail' not found. 'book-detail' is not a valid view function or pattern name.
+[01/Feb/2018 15:47:47] "GET /catalog/books/ HTTP/1.1" 500 188269
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 01, 2018 - 15:47:46
+Django version 2.0.1, using settings 'locallibrary.settings'
+Starting development server at http://192.168.49.169:8000/
+Quit the server with CONTROL-C.
+[01/Feb/2018 15:48:36] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:48:39] "GET /catalog/book/1 HTTP/1.1" 200 1068
+[01/Feb/2018 15:48:40] "GET /catalog/books/ HTTP/1.1" 200 1236
+[01/Feb/2018 15:48:42] "GET /catalog/book/2 HTTP/1.1" 200 1068
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 01, 2018 - 15:48:29
+Django version 2.0.1, using settings 'locallibrary.settings'
+Starting development server at http://192.168.49.169:8000/
+Quit the server with CONTROL-C.
+[01/Feb/2018 15:49:26] "GET /catalog/ HTTP/1.1" 200 1413
+[01/Feb/2018 15:49:27] "GET /catalog/books/ HTTP/1.1" 200 1238
+[01/Feb/2018 15:49:29] "GET /catalog/books/1 HTTP/1.1" 200 1068
+[01/Feb/2018 15:49:30] "GET /catalog/ HTTP/1.1" 200 1413
+[01/Feb/2018 15:49:31] "GET /catalog/books/ HTTP/1.1" 200 1238
+[01/Feb/2018 15:49:32] "GET /catalog/books/ HTTP/1.1" 200 1238
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 01, 2018 - 15:49:26
+Django version 2.0.1, using settings 'locallibrary.settings'
+Starting development server at http://192.168.49.169:8000/
+Quit the server with CONTROL-C.
+[01/Feb/2018 15:50:47] "GET /catalog/ HTTP/1.1" 200 1413
+[01/Feb/2018 15:50:47] "GET /catalog/books/ HTTP/1.1" 200 1238
+[01/Feb/2018 15:50:49] "GET /catalog/books/1 HTTP/1.1" 200 1068
+[01/Feb/2018 15:50:50] "GET /catalog/books/ HTTP/1.1" 200 1238
+[01/Feb/2018 15:50:52] "GET /catalog/books/2 HTTP/1.1" 200 1068
+Internal Server Error: /catalog/
+Traceback (most recent call last):
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/amohamed/virtualenvs/djangodev/locallibrary/locallibrary/catalog/views.py", line 23, in index
+    context={'num_books':num_books,'num_instances':num_instances,'num_instances_available':num_instances_available,'num_authors':num_authors},
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/base.py", line 910, in render_annotated
+    return self.render(context)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/template/defaulttags.py", line 447, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/base.py", line 88, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/amohamed/virtualenvs/djangodev/lib/python3.6/site-packages/django/urls/resolvers.py", line 632, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'book-detail' with no arguments not found. 1 pattern(s) tried: ['catalog\\/books\\/(?P<pk>[0-9]+)$']
+[01/Feb/2018 15:54:58] "GET /catalog/ HTTP/1.1" 500 153977
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 01, 2018 - 15:50:46
+Django version 2.0.1, using settings 'locallibrary.settings'
+Starting development server at http://192.168.49.169:8000/
+Quit the server with CONTROL-C.
+[01/Feb/2018 15:56:54] "GET /catalog/ HTTP/1.1" 200 1472
+[01/Feb/2018 15:57:00] "GET /catalog/books/ HTTP/1.1" 200 1297
+[01/Feb/2018 15:57:03] "GET /catalog/books/ HTTP/1.1" 200 1297
+[01/Feb/2018 15:57:05] "GET /catalog/books/ HTTP/1.1" 200 1297
+[01/Feb/2018 15:57:07] "GET /catalog/ HTTP/1.1" 200 1472
+[01/Feb/2018 15:57:09] "GET /catalog/books/ HTTP/1.1" 200 1297
+[01/Feb/2018 15:57:11] "GET /catalog/books/1 HTTP/1.1" 200 1127
+[01/Feb/2018 15:57:13] "GET /catalog/books/ HTTP/1.1" 200 1297
+[01/Feb/2018 15:57:15] "GET /catalog/books/2 HTTP/1.1" 200 1127
+[01/Feb/2018 15:57:16] "GET /catalog/books/ HTTP/1.1" 200 1297
